@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.mobilearchitects.signtospeak.authenticationScreens.SplashScreen
+import com.mobilearchitects.signtospeak.ui.screens.authenticationScreens.SplashScreen
 import com.mobilearchitects.signtospeak.ui.theme.SignToSpeakTheme
 
 class MainActivity : ComponentActivity() {

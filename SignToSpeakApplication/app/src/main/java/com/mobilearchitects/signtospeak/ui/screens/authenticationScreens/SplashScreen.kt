@@ -1,4 +1,4 @@
-package com.mobilearchitects.signtospeak.authenticationScreens
+package com.mobilearchitects.signtospeak.ui.screens.authenticationScreens
 import android.view.animation.OvershootInterpolator
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
