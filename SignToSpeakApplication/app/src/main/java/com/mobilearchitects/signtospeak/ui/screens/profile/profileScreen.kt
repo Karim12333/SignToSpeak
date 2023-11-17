@@ -41,6 +41,8 @@ import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.focus.FocusDirection
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.platform.LocalView
@@ -53,39 +55,20 @@ import com.mobilearchitects.signtospeak.ui.theme.AppBlue
 import com.mobilearchitects.signtospeak.ui.theme.AppGrey
 import com.mobilearchitects.signtospeak.ui.theme.AppLightBlue
 import com.mobilearchitects.signtospeak.ui.theme.AppLightestBlue
-
-
-
-
-val provider = GoogleFont.Provider(
-    providerAuthority = "com.google.android.gms.fonts",
-    providerPackage = "com.google.android.gms",
-    certificates = R.array.com_google_android_gms_fonts_certs
-)
-val rubikFont = GoogleFont("Rubik")
-
-val rubikFontFamily = FontFamily(
-    Font(
-        googleFont = rubikFont,
-        fontProvider = provider,
-    )
-)
-
-
-
+import com.mobilearchitects.signtospeak.ui.theme.linearGradientTextColors
+import com.mobilearchitects.signtospeak.ui.theme.nunitoSansFontFamily
 
 @Composable
 fun ProfileScreen(name: String, profilePicture: Painter) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp)
     ) {
         // Profile Section
         ProfileInfo(name = name, profilePicture = profilePicture)
-
-        Spacer(modifier = Modifier.height(80.dp))
 
         // Password Change Section
         PasswordChangeScreen()
@@ -102,11 +85,13 @@ fun ProfileInfo(name: String, profilePicture: Painter) {
     ) {
         Text(
             text = "Hello, $name!",
+            fontFamily = nunitoSansFontFamily,
+            fontWeight = FontWeight.Bold,
             style = TextStyle(
-                fontFamily = rubikFontFamily,
                 fontSize = 30.sp,
-                fontWeight = FontWeight(700),
-                color = AppBlack,
+                brush = Brush.verticalGradient(
+                    colors = linearGradientTextColors
+                )
             )
         )
 
@@ -154,6 +139,8 @@ fun ProfileInfo(name: String, profilePicture: Painter) {
             ) {
                 Text(
                     text = "Statistics",
+                    fontFamily = nunitoSansFontFamily,
+                    fontWeight = FontWeight.Normal,
                     fontSize = 18.sp,
                     color = Color.White,
                     modifier = Modifier
@@ -170,14 +157,14 @@ fun ProfileInfo(name: String, profilePicture: Painter) {
             ){
                 ElevatedCard(
                     elevation = CardDefaults.cardElevation(
-                        defaultElevation = 6.dp
+                        defaultElevation = 4.dp
                     ),
                     colors = CardDefaults.cardColors(
-                        containerColor = Color(0xFFEDF6FF),
+                        containerColor = AppLightestBlue,
                     ),
                     modifier = Modifier
                         .size(width = 130.dp, height = 100.dp)
-                        .border(1.dp, AppLightestBlue, shape = RoundedCornerShape(8.dp))
+                        .border(1.dp, AppLightBlue, shape = RoundedCornerShape(8.dp))
 
                 ) {
                     Row(
@@ -198,7 +185,9 @@ fun ProfileInfo(name: String, profilePicture: Painter) {
                         Text(
                             text = "12",
                             textAlign = TextAlign.Center,
-                            fontSize = 22.sp
+                            fontSize = 22.sp,
+                            fontFamily = nunitoSansFontFamily,
+                            fontWeight = FontWeight.Normal,
                         )
                     }
                     Text(
@@ -207,21 +196,22 @@ fun ProfileInfo(name: String, profilePicture: Painter) {
                             .padding(start = 16.dp),
                         textAlign = TextAlign.Center,
                         color = AppGrey,
-                        fontSize = 17.sp
-
+                        fontSize = 17.sp,
+                        fontFamily = nunitoSansFontFamily,
+                        fontWeight = FontWeight.Light
                     )
                 }
 
                 ElevatedCard(
                     elevation = CardDefaults.cardElevation(
-                        defaultElevation = 6.dp
+                        defaultElevation = 4.dp
                     ),
                     colors = CardDefaults.cardColors(
-                        containerColor = Color(0xFFEDF6FF),
+                        containerColor = AppLightestBlue,
                     ),
                     modifier = Modifier
                         .size(width = 130.dp, height = 100.dp)
-                        .border(1.dp, AppLightestBlue, shape = RoundedCornerShape(8.dp))
+                        .border(1.dp, AppLightBlue, shape = RoundedCornerShape(8.dp))
 
                 ) {
                     Text(
@@ -229,7 +219,9 @@ fun ProfileInfo(name: String, profilePicture: Painter) {
                         modifier = Modifier
                             .padding(16.dp),
                         textAlign = TextAlign.Center,
-                        fontSize = 22.sp
+                        fontSize = 22.sp,
+                        fontFamily = nunitoSansFontFamily,
+                        fontWeight = FontWeight.Normal,
                     )
                     Text(
                         text = "Tier",
@@ -237,7 +229,9 @@ fun ProfileInfo(name: String, profilePicture: Painter) {
                             .padding(start = 16.dp),
                         textAlign = TextAlign.Center,
                         color = AppGrey,
-                        fontSize = 17.sp
+                        fontSize = 17.sp,
+                        fontFamily = nunitoSansFontFamily,
+                        fontWeight = FontWeight.Light
 
                     )
                 }
@@ -263,21 +257,23 @@ fun PasswordChangeScreen() {
             text = "Change password",
             textAlign = TextAlign.Center,
             fontSize = 18.sp,
-            color = AppBlack,
-            fontWeight = FontWeight(500)
+            color = AppBlue,
+            fontFamily = nunitoSansFontFamily,
+            fontWeight = FontWeight.SemiBold,
             )
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(4.dp))
 
         // Old Password TextField
         OutlinedTextField(
             colors = TextFieldDefaults.outlinedTextFieldColors(
-                textColor = AppGrey,
-                containerColor = Color(0xFFEDF6FF),
+                textColor = Color(0xB227323A),
+                containerColor = AppLightestBlue,
                 focusedBorderColor = AppBlue,
                 unfocusedBorderColor = AppLightBlue),
+
             value = oldPassword,
             onValueChange = { oldPassword = it },
-            label = { Text("Old Password") },
+            label = { Text("Old Password")},
 //            visualTransformation = PasswordVisualTransformation(),
 //            keyboardOptions = KeyboardOptions.Default.copy(
 //                imeAction = ImeAction.Next
@@ -296,8 +292,8 @@ fun PasswordChangeScreen() {
         // New Password TextField
         OutlinedTextField(
             colors = TextFieldDefaults.outlinedTextFieldColors(
-                textColor = AppGrey,
-                containerColor = Color(0xFFEDF6FF),
+                textColor = Color(0xB227323A),
+                containerColor = AppLightestBlue,
                 focusedBorderColor = AppBlue,
                 unfocusedBorderColor = AppLightBlue),
             value = newPassword,
@@ -315,14 +311,15 @@ fun PasswordChangeScreen() {
                 // Handle password change logic here
             },
             colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFF4188D6),
+                containerColor = AppBlue,
                 contentColor = Color.White),
             modifier = Modifier
                 .padding(top = 16.dp)
                 .width(100.dp)
 
         ) {
-            Text("Submit")
+            Text("Submit", fontFamily = nunitoSansFontFamily,
+                fontWeight = FontWeight.Normal,)
         }
     }
 }

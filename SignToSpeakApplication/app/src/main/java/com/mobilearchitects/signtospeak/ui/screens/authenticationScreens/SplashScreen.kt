@@ -20,9 +20,13 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.mobilearchitects.signtospeak.R
+import com.mobilearchitects.signtospeak.ui.screens.profile.ProfileScreen
+import com.mobilearchitects.signtospeak.ui.theme.AppBlack
 import kotlinx.coroutines.delay
 @Composable
 fun SplashScreen(navController: NavController) {
@@ -46,9 +50,9 @@ fun SplashScreen(navController: NavController) {
             .fillMaxSize()
             .background(
                 brush = Brush.linearGradient(
-                    0.0f to Color(0xFF479CF9),
-                    700f to Color(0xFF71EED9),
-                    1000f to Color(0xFF23D4B9),
+                    0.0f to Color(0xFF28B4F7),
+                    0.2f to Color(0xFF46A4F7), // Gradual transition to green
+                    1.0f to Color(0xFF72EFD8),
                     start = Offset.Zero,
                     end = Offset.Infinite
                 )
@@ -63,12 +67,12 @@ fun SplashScreen(navController: NavController) {
                 .padding()
                 .graphicsLayer(
                     translationX = (-300).toFloat(),
-                    translationY = (-1000).toFloat(),
+                    translationY = (-1080).toFloat(),
                     alpha = 0.5f
                 ),
             onDraw = {
                 drawCircle(
-                    color = Color(0xFF2BDDBE),
+                    color = Color(0xFF6FECD9),
                 )
             }
         )
@@ -79,13 +83,13 @@ fun SplashScreen(navController: NavController) {
                 .height(410.dp)
                 .padding()
                 .graphicsLayer(
-                    translationX = (100).toFloat(), // Adjust the translation for the opposite side
-                    translationY = (-1300).toFloat(),
+                    translationX = (400).toFloat(), // Adjust the translation for the opposite side
+                    translationY = (-1180).toFloat(),
                     alpha = 0.5f
                 ),
             onDraw = {
                 drawCircle(
-                    color = Color(0xFF2BDDBE),
+                    color = Color(0xFF6FECD9),
                 )
             }
         )
@@ -102,4 +106,12 @@ fun SplashScreen(navController: NavController) {
         }
     }
 }
+
+@Preview(showBackground = true)
+@Composable
+fun SplashScreenPreview() {
+    val navController = rememberNavController()
+    SplashScreen(navController = navController)
+}
+
 

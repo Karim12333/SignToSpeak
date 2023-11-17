@@ -14,13 +14,21 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.mobilearchitects.signtospeak.authenticationScreens.FilledButton
 import com.mobilearchitects.signtospeak.authenticationScreens.InputText
+import androidx.navigation.compose.rememberNavController
+import com.mobilearchitects.signtospeak.ui.screens.authenticationScreens.SplashScreen
+import com.mobilearchitects.signtospeak.ui.theme.SignToSpeakTheme
+import com.mobilearchitects.signtospeak.ui.theme.nunitoSansFontFamily
 
 @Composable
 fun LogIn(navController: NavController) {
@@ -29,9 +37,9 @@ fun LogIn(navController: NavController) {
             .fillMaxSize()
             .background(
                 brush = Brush.linearGradient(
-                    0.0f to Color(0xFF479CF9),
-                    700f to Color(0xFF71EED9),
-                    1000f to Color(0xFF23D4B9),
+                    0.0f to Color(0xFF28B4F7),
+                    0.2f to Color(0xFF46A4F7), // Gradual transition to green
+                    1.0f to Color(0xFF72EFD8),
                     start = Offset.Zero,
                     end = Offset.Infinite
                 )
@@ -55,12 +63,15 @@ fun LogIn(navController: NavController) {
             ) {
                 Text(
                     text = buildAnnotatedString {
-                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold,
+                            fontFamily = nunitoSansFontFamily))
+                        {
                             append("Welcome.")
                         }
                         append("\nGood to see you! ")
                     },
                     style = TextStyle(
+                        fontFamily = nunitoSansFontFamily,
                         fontSize = 23.sp,
                         color = Color(0xE5FFFFFF),
                         textAlign = TextAlign.Center,
@@ -76,8 +87,9 @@ fun LogIn(navController: NavController) {
                 text = AnnotatedString("forgot password?"),
                 style = TextStyle(
                     fontSize = 14.sp,
+                    fontFamily = nunitoSansFontFamily,
                     fontWeight = FontWeight(400),
-                    color = Color(0xFF27323A),
+                    color = Color.White,
                     textAlign = TextAlign.End,
                 ),
                 modifier = Modifier
@@ -90,4 +102,14 @@ fun LogIn(navController: NavController) {
             FilledButton(text = "Login", { /*TODO*/ })
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MyPreview() {
+    val navController = rememberNavController()
+    SignToSpeakTheme{
+        LogIn(navController = navController)
+    }
+
 }

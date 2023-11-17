@@ -14,11 +14,15 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.mobilearchitects.signtospeak.authenticationScreens.InputText
 import com.mobilearchitects.signtospeak.authenticationScreens.NotFilledButton
+import com.mobilearchitects.signtospeak.ui.theme.SignToSpeakTheme
+import com.mobilearchitects.signtospeak.ui.theme.nunitoSansFontFamily
 
 @Composable
 fun signUp(navController: NavController) {
@@ -27,9 +31,9 @@ fun signUp(navController: NavController) {
             .fillMaxSize()
             .background(
                 brush = Brush.linearGradient(
-                    0.0f to Color(0xFF479CF9),
-                    700f to Color(0xFF71EED9),
-                    1000f to Color(0xFF23D4B9),
+                    0.0f to Color(0xFF28B4F7),
+                    0.2f to Color(0xFF46A4F7), // Gradual transition to green
+                    1.0f to Color(0xFF72EFD8),
                     start = Offset.Zero,
                     end = Offset.Infinite
                 )
@@ -53,12 +57,13 @@ fun signUp(navController: NavController) {
             ) {
                 Text(
                     text = buildAnnotatedString {
-                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, fontFamily = nunitoSansFontFamily,)) {
                             append("Create an account")
                         }
                         append("\nto get started ")
                     },
                     style = TextStyle(
+                        fontFamily = nunitoSansFontFamily,
                         fontSize = 23.sp,
                         color = Color(0xE5FFFFFF),
                         textAlign = TextAlign.Center,
@@ -79,3 +84,12 @@ fun signUp(navController: NavController) {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun signUpPreview() {
+    val navController = rememberNavController()
+    SignToSpeakTheme{
+        signUp(navController = navController)
+    }
+
+}

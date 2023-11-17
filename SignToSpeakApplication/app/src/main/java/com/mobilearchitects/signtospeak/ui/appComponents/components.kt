@@ -24,6 +24,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import com.mobilearchitects.signtospeak.ui.theme.AppBlue
+import com.mobilearchitects.signtospeak.ui.theme.nunitoSansFontFamily
 
 
 @Composable
@@ -32,6 +34,7 @@ fun NormalTextComponent(value: String){
         text = value,
         style = TextStyle(
             fontSize = 23.sp,
+            fontFamily = nunitoSansFontFamily,
             fontWeight = FontWeight(700),
             color = Color(0xE5FFFFFF),
             textAlign = TextAlign.Center,
@@ -68,8 +71,9 @@ fun FilledButton(text: String,  onClick: () -> Unit){
                 .height(36.05767.dp),
             style = TextStyle(
                 fontSize = 16.sp,
+                fontFamily = nunitoSansFontFamily,
                 fontWeight = FontWeight(500),
-                color = Color(0xFF27323A),
+                color = AppBlue,
                 textAlign = TextAlign.Center,
             )
         )
@@ -104,6 +108,7 @@ fun NotFilledButton(text: String, onClick: () -> Unit) {
                 .height(36.05767.dp),
             style = TextStyle(
                 fontSize = 16.sp,
+                fontFamily = nunitoSansFontFamily,
                 fontWeight = FontWeight(500),
                 color = Color.White,
                 textAlign = TextAlign.Center,
@@ -135,6 +140,7 @@ fun InputText(hint: String) {
             },
             textStyle = TextStyle(
                 fontSize = 16.sp,
+                fontFamily = nunitoSansFontFamily,
                 fontWeight = FontWeight(400),
                 color = Color.Black,
                 textAlign = TextAlign.Center,
@@ -152,6 +158,7 @@ fun InputText(hint: String) {
                     .height(17.dp),
                 style = TextStyle(
                     fontSize = 16.sp,
+                    fontFamily = nunitoSansFontFamily,
                     fontWeight = FontWeight(400),
                     color = Color.White,
                     textAlign = TextAlign.Center,

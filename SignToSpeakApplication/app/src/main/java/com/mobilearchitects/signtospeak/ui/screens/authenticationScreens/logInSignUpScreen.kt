@@ -15,9 +15,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.tooling.preview.Preview
 import com.mobilearchitects.signtospeak.R
 import com.mobilearchitects.signtospeak.authenticationScreens.FilledButton
 import com.mobilearchitects.signtospeak.authenticationScreens.NotFilledButton
+import com.mobilearchitects.signtospeak.ui.theme.SignToSpeakTheme
 
 @Composable
 fun MainScreen(navController: NavController){
@@ -44,9 +46,9 @@ fun logInSignUpScreen(navController: NavController) {
             .fillMaxSize()
             .background(
                 brush = Brush.linearGradient(
-                    0.0f to Color(0xFF479CF9),
-                    700f to Color(0xFF71EED9),
-                    1000f to Color(0xFF23D4B9),
+                    0.0f to Color(0xFF28B4F7),
+                    0.2f to Color(0xFF46A4F7), // Gradual transition to green
+                    1.0f to Color(0xFF72EFD8),
                     start = Offset.Zero,
                     end = Offset.Infinite
                 )
@@ -83,4 +85,13 @@ fun logInSignUpScreen(navController: NavController) {
             NotFilledButton(text = "Sign Up",{ navController.navigate("signUp")})
         }
     }
+}
+@Preview(showBackground = true)
+@Composable
+fun MainPreview() {
+    val navController = rememberNavController()
+    SignToSpeakTheme{
+        MainScreen(navController = navController)
+    }
+
 }
