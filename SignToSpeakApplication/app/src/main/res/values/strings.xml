@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SignToSpeak</string>
+    <string name="accessToken"></string>
 </resources>

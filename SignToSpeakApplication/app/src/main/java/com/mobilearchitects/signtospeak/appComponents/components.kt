@@ -118,8 +118,7 @@ fun NotFilledButton(text: String, onClick: () -> Unit) {
 }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun InputText(hint: String) {
-    var text by remember { mutableStateOf("") }
+fun InputText(hint: String, text: String , onTextChange:(String)->Unit) {
     var isHintVisible by remember { mutableStateOf(true) }
 
     Box(
@@ -135,7 +134,7 @@ fun InputText(hint: String) {
         BasicTextField(
             value = text,
             onValueChange = {
-                text = it
+                onTextChange(it);
                 isHintVisible = it.isEmpty()
             },
             textStyle = TextStyle(
