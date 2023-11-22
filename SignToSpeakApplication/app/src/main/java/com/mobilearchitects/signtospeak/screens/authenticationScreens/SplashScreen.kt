@@ -1,4 +1,4 @@
-package com.mobilearchitects.signtospeak.ui.screens.authenticationScreens
+package com.mobilearchitects.signtospeak.screens.authenticationScreens
 import android.view.animation.OvershootInterpolator
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.mobilearchitects.signtospeak.R
-import com.mobilearchitects.signtospeak.ui.screens.profile.ProfileScreen
+import com.mobilearchitects.signtospeak.screens.profile.ProfileScreen
 import com.mobilearchitects.signtospeak.ui.theme.AppBlack
 import kotlinx.coroutines.delay
 @Composable

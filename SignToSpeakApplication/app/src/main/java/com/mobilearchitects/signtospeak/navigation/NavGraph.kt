@@ -1,4 +1,4 @@
-package com.mobilearchitects.signtospeak.ui.navigation
+package com.mobilearchitects.signtospeak.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController

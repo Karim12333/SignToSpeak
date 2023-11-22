@@ -26,7 +26,7 @@ import androidx.navigation.compose.rememberNavController
 import com.mobilearchitects.signtospeak.authenticationScreens.FilledButton
 import com.mobilearchitects.signtospeak.authenticationScreens.InputText
 import androidx.navigation.compose.rememberNavController
-import com.mobilearchitects.signtospeak.ui.screens.authenticationScreens.SplashScreen
+import com.mobilearchitects.signtospeak.screens.authenticationScreens.SplashScreen
 import com.mobilearchitects.signtospeak.ui.theme.SignToSpeakTheme
 import com.mobilearchitects.signtospeak.ui.theme.nunitoSansFontFamily
 
