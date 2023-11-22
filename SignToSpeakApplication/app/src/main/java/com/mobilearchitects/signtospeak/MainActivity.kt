@@ -27,6 +27,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.mobilearchitects.signtospeak.navigation.BottomNavigationBarComposable
 import com.mobilearchitects.signtospeak.navigation.BottomNavigationItem
 import com.mobilearchitects.signtospeak.screens.mainpage.HomeScreen
+import com.mobilearchitects.signtospeak.screens.mainpage.MainCamScreen
+import com.mobilearchitects.signtospeak.screens.mainpage.MainPageScreen
 import com.mobilearchitects.signtospeak.ui.theme.AppLightestBlue
 import com.mobilearchitects.signtospeak.ui.theme.SignToSpeakTheme
 
@@ -36,46 +38,52 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val items = listOf(
-                BottomNavigationItem(
-                    title = "Learn",
-                    selectedIcon = painterResource(id = R.drawable.selected_book),
-                    unselectedIcon = painterResource(id = R.drawable.ic_book),
-                    hasNews = false
-                ),
-                BottomNavigationItem(
-                    title = "",
-                    selectedIcon = painterResource(id = R.drawable.home_button_bigger),
-                    unselectedIcon = painterResource(id =R.drawable.unselected_home_button),
-                    hasNews = false
-                ),
-                BottomNavigationItem(
-                    title = "Profile",
-                    selectedIcon = painterResource(id = R.drawable.selected_profile),
-                    unselectedIcon = painterResource(id =R.drawable.ic_profile),
-                    hasNews = false
-                ) )
+//            val items = listOf(
+//                BottomNavigationItem(
+//                    title = "Learn",
+//                    selectedIcon = painterResource(id = R.drawable.selected_book),
+//                    unselectedIcon = painterResource(id = R.drawable.ic_book),
+//                    hasNews = false
+//                ),
+//                BottomNavigationItem(
+//                    title = "",
+//                    selectedIcon = painterResource(id = R.drawable.home_button_bigger),
+//                    unselectedIcon = painterResource(id =R.drawable.unselected_home_button),
+//                    hasNews = false
+//                ),
+//                BottomNavigationItem(
+//                    title = "Profile",
+//                    selectedIcon = painterResource(id = R.drawable.selected_profile),
+//                    unselectedIcon = painterResource(id =R.drawable.ic_profile),
+//                    hasNews = false
+//                ) )
 
             SignToSpeakTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Navigation()
+                    MainPageScreen()
                 }
-                var selectedItemIndex by rememberSaveable { mutableStateOf(0) }
-
-                Scaffold(
-                    bottomBar = {
-                        BottomNavigationBarComposable(
-                            items = items,
-                            selectedItemIndex = selectedItemIndex,
-                            onItemSelected = { index -> selectedItemIndex = index }
-                        )
-                    },
-                    containerColor = AppLightestBlue,
-                ) {}
+//                // A surface container using the 'background' color from the theme
+//                Surface(
+//                    modifier = Modifier.fillMaxSize(),
+//                    color = MaterialTheme.colorScheme.background
+//                ) {
+//                    Navigation()
+//                }
+//                var selectedItemIndex by rememberSaveable { mutableStateOf(0) }
+//
+//                Scaffold(
+//                    bottomBar = {
+//                        BottomNavigationBarComposable(
+//                            items = items,
+//                            selectedItemIndex = selectedItemIndex,
+//                            onItemSelected = { index -> selectedItemIndex = index }
+//                        )
+//                    },
+//                    containerColor = AppLightestBlue,
+//                ) {}
             }
         }
     }

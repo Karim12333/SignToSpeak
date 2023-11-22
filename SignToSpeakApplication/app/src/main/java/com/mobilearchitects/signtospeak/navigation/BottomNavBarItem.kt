@@ -1,6 +1,6 @@
 package com.mobilearchitects.signtospeak.navigation
 
-//import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.painter.Painter
 //import androidx.compose.ui.res.painterResource
 //import com.mobilearchitects.signtospeak.R
 
