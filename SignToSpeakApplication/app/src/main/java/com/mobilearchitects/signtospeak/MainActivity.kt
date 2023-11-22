@@ -29,6 +29,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.mobilearchitects.signtospeak.R
 import com.mobilearchitects.signtospeak.navigation.BottomNavigationBarComposable
 import com.mobilearchitects.signtospeak.navigation.BottomNavigationItem
 import com.mobilearchitects.signtospeak.screens.mainpage.HomeScreen
@@ -126,7 +127,7 @@ class MainActivity : ComponentActivity() {
 //                    containerColor = Color.White,
 //                ) {}
                     Navigation()
-                }
+//                }
                 var selectedItemIndex by rememberSaveable { mutableStateOf(0) }
 
                 Scaffold(
